@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import './App.css';
 import Adduser from './components/adduser';
 import Edituser from './components/edituser';
@@ -9,11 +10,15 @@ import Users from './components/users';
 function App() {
   return (
     <div>
-        <Navbar />
-        <Users />
-        <User />
-        <Edituser />
-        <Adduser />
+      <Navbar />
+      <Router>
+        <Routes>
+          <Route path='/'  element={<Users />} />
+          <Route path='/user'  element={<User />} />
+          <Route path='/Edituser'  element={<Edituser />} />
+          <Route path='/Adduser'  element={<Adduser />} />        
+        </Routes>
+      </Router>
     </div>
   );
 }
